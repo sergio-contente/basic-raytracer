@@ -22,6 +22,7 @@ public:
 	Vec3<V> operator + (const Vec3<V> &v) const;
 	Vec3<V> operator += (const Vec3<V> &v) const;
 	Vec3<V> operator *= (const Vec3<V> &v) const;
+	Vec3 normalize();
 	friend std::ostream & operator << (std::ostream &os, const Vec3<V> &v)
     {
         os << "[" << v.x << " " << v.y << " " << v.z << "]";

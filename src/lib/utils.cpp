@@ -64,3 +64,14 @@ Vec3<V> Vec3<V> :: operator *= (const Vec3<V> &v) const
  	x *= v.x, y *= v.y, z *= v.z;
 	return *this;
 }
+
+template< typename V >
+Vec3<V> Vec3< V > :: normalize()
+{
+	V norm = norma();
+        if (norm > 0) {
+            V invNor = 1 / norma;
+            x *= invNor, y *= invNor, z *= invNor;
+        }
+        return *this;
+}
