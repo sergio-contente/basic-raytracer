@@ -6,7 +6,7 @@ Vec3< V >::Vec3() : x(V(0)), y(V(0)), z(V(0))
 }
 
 template< typename V >
-Vec3< V >::Vec3(V x, V y, V z) : this-> x(x), this->y(y), this->z(z)
+Vec3< V >::Vec3(V x, V y, V z) : x(x), y(y), z(z)
 {
 }
 
