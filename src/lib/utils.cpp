@@ -52,16 +52,16 @@ return Vec3<V>(x + v.x, y + v.y, z + v.z);
 }
 
 template< typename V >
-Vec3<V> Vec3<V> :: operator += (const Vec3<V> &v) const
+Vec3<V> Vec3<V> :: operator += (const Vec3<V> &v)
 {
- 	x += v.x, y += v.y, z += v.z;
+ 	this->x = this->x + v.x, this->y = this->y + v.y, this->z = this->z + v.z;
 	return *this;
 }
 
 template< typename V >
-Vec3<V> Vec3<V> :: operator *= (const Vec3<V> &v) const
+Vec3<V> Vec3<V> :: operator *= (const Vec3<V> &v)
 {
- 	x *= v.x, y *= v.y, z *= v.z;
+ 	this->x *= v.x, this->y *= v.y, this->z *= v.z;
 	return *this;
 }
 
@@ -70,8 +70,10 @@ Vec3<V> Vec3< V > :: normalize()
 {
 	V norm = norma();
         if (norm > 0) {
-            V invNor = 1 / norma;
+            V invNor = 1 / norm;
             x *= invNor, y *= invNor, z *= invNor;
         }
         return *this;
 }
+
+template class Vec3<float>;
