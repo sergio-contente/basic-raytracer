@@ -25,6 +25,36 @@ bool Sphere::intersect(const Vec3f &orig_raio, const Vec3f &dir_raio,
 	float t_hc = sqrt(radius*radius - d*d);
 	t0 = t_ca - t_hc;
 	t1 = t_ca + t_hc;
-	
+
   return true;
+}
+
+Vec3f Sphere::trace(const Vec3f &orig_raio, const Vec3f &dir_raio,
+		const std::vector<Sphere> &spheres, const int &depth) {
+
+ 		float near = INFINITY;
+    const Sphere* sphere = NULL;
+
+		for(int i = 0; i < spheres.size(); i++){
+			float t0 = INFINITY, t1 = INFINITY;
+			if (spheres[i].intersect(orig_raio, dir_raio, t0, t1)){
+				//Imagem em assets para analisar os casos
+				if (t0 < 0)
+				{
+					t0 = t1;
+				}
+				if (t0 < near)
+        { 
+					near = t0;
+					sphere = &spheres[i];
+				}
+			}
+		}
+
+		if (sphere == NULL) //nao ha interseccao
+    {
+			return Vec3f(2,2,2);
+		}
+
+		
 }

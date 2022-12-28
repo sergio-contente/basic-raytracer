@@ -5,6 +5,7 @@
 #include <cstdlib>
 #include <cstdio>
 #include <cmath>
+#include <vector>
 
 #include "utils.h"
 
@@ -23,9 +24,9 @@ public:
 				const float &k_reflection = 0);
 	~Sphere();
 	bool intersect(const Vec3f &orig_raio, const Vec3f &dir_raio,
-	  		float &t0, float &t1) const {
-
-
-	}
+	  		float &t0, float &t1) const;
+	
+  Vec3f trace(const Vec3f &orig_raio, const Vec3f &dir_raio,
+		const std::vector<Sphere> &spheres, const int &depth);
 };
 #endif // _SPHERE_H_
